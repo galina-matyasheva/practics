@@ -36,6 +36,18 @@ body {
     width: 100%;
     height: 1018px;
     z-index: -1;
+    background-position-x: center;
+}
+
+.hamburger {
+    list-style: none;
+}
+
+li.hamburger-line {
+    width: 50px;
+    height: 3px;
+    background-color: #ffff;
+    margin-bottom: 8px;
 }
 
 .baner::before {
@@ -216,9 +228,13 @@ header {
 
 .story-gallery-item:hover > .story-gallery-content {
     z-index: 123324;
-    display: block;
+    display: flex;
 }
 
+.story-gallery-content_block {
+    flex-direction: column;
+    align-items: center;
+}
 
 .what-do {
     font-family: "Kaushan Script";
@@ -228,6 +244,11 @@ h3 {
     font-family: "Montsserat";
     text-transform: uppercase;
 
+}
+.opacity-img {
+    display: flex;
+    position: absolute;
+    top: 20px;
 }
 
 .line-decor {
@@ -558,7 +579,7 @@ blockquote {
     background-color: yellow;
     height: 54px;
     width: 217px;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
 }
@@ -625,6 +646,10 @@ blockquote {
     margin: 70px auto;
     padding-top: 65px;
     padding-bottom: 65px;
+}
+
+img.q {
+    max-width: 100%;
 }
 
 .work {
@@ -694,8 +719,35 @@ blockquote {
     bottom: 388px;
 }
 
+.work-opacity-title {
+    font-family: "DejaVu Sans";
+    text-transform: uppercase;
+    color: #f8f8f8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 100500;
+}
+
+.work-opacity-text {
+    display: none;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100500;
+}
+
+.work-gallery-block-item:hover > .work-opacity-title {
+    display: block;
+}
+
+.work-gallery-block-item:hover > .work-opacity-text {
+    display: block;
+}
 .testimonial-container {
-    position: relative;
     display: flex;
     justify-content: center;
     margin: 0;
@@ -770,12 +822,157 @@ img.speech-joe {
 .work-gallery {
     display: flex;
     width: 100%;
+    margin-bottom: 35px;
 }
 .work-gallery-block {
     display: flex;
     flex-wrap: wrap;
+        width: 50%;
 }
 .open-man-text {
     z-index: 5;
     text-align: center;
+}
+
+.work-gallery-wrapp {
+    width: 50%;
+}
+
+.work-gallery-item {
+    width: 100%;
+    height: 390px
+}
+
+.work-gallery-item img {
+    object-fit: cover;
+    object-position: bottom;
+    width: 100%;
+    height: 100%;
+}
+
+.work-gallery-item.medusa1 {
+    height: 780px;
+}
+
+.work-gallery-block-item {
+    position: relative;
+}
+.work-gallery-block-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .8;
+}
+.work-gallery-block-item:hover::before {
+    position: absolute;
+    background: linear-gradient( #e88683 24%, #ebd188 71%);
+    z-index: 1123;
+}
+.work-gallery-block-item:hover  {
+    z-index: 123324;
+    display: flex;
+}
+
+.work-opacity-text {
+    color: white;
+    font-family: "Roboto";
+    font-weight: bold;
+    padding: 0;
+    //margin: 6px;
+}
+
+.info-form input:last-child {
+    font-family: "DejaVu Sans";
+    font-size: 24px;
+    background-color: #95e1d3;
+    color: #F5F5F5;
+    border: 1px solid #95e1d3;
+}
+.text-social {
+    font-family: Roboto;
+    font-size: 15px;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.footer-container {
+    width: 100%;
+    max-width: 1200px;
+}
+.footer-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+form.info-form {
+    display: flex;
+
+}
+input.email {
+    border: 1px solid #e5e5e5;
+    padding: 15px;
+}
+input.email::placeholder {
+    color: #e5e5e5;
+}
+
+.blogs-img{
+    display: flex;
+}
+
+.blogs-data {
+    display: flex;
+}
+
+.footer-copyright {
+    font-family: Montsserat;
+    font-size: 14px;
+    //border-top: 1px solid #e5e5e5;
+    text-align: center;
+}
+
+.footer-copyright span {
+    color: #f38181;
+}
+
+
+
+@media (min-width: 1612px) {
+    .baner {
+        background-size: cover;
+        background-position: center -55px;
+    }
+}
+
+@media (max-width: 1155px) {
+        .footer-info {
+            justify-content: space-around;
+        }
+
+        .story-gallery-container {
+            justify-content: space-around;
+        }
+
+        .story-gallery-item {
+            width: 30%;
+        }
+
+        .item {
+            width: 50%;
+        }
+
+    }
+
+@media  (max-width: 768px) {
+    nav {
+        display: none;
+    }
+
 }
